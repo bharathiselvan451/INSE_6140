@@ -1,0 +1,1106 @@
+{
+  "banner": {
+    "description": "WordPress Security Scanner by the WPScan Team",
+    "version": "3.8.28",
+    "authors": [
+      "@_WPScan_",
+      "@ethicalhack3r",
+      "@erwan_lr",
+      "@firefart"
+    ],
+    "sponsor": "Sponsored by Automattic - https://automattic.com/"
+  },
+  "start_time": 1743717450,
+  "start_memory": 52183040,
+  "target_url": "http://localhost/scan/wordpress/",
+  "target_ip": "::1",
+  "effective_url": "http://localhost/scan/wordpress/",
+  "interesting_findings": [
+    {
+      "url": "http://localhost/scan/wordpress/",
+      "to_s": "Headers",
+      "type": "headers",
+      "found_by": "Headers (Passive Detection)",
+      "confidence": 100,
+      "confirmed_by": {
+
+      },
+      "references": {
+
+      },
+      "interesting_entries": [
+        "Server: Apache/2.4.54 (Unix) OpenSSL/1.1.1s PHP/7.4.33 mod_perl/2.0.12 Perl/v5.34.1",
+        "X-Powered-By: PHP/7.4.33"
+      ]
+    },
+    {
+      "url": "http://localhost/scan/wordpress/xmlrpc.php",
+      "to_s": "XML-RPC seems to be enabled: http://localhost/scan/wordpress/xmlrpc.php",
+      "type": "xmlrpc",
+      "found_by": "Direct Access (Aggressive Detection)",
+      "confidence": 100,
+      "confirmed_by": {
+
+      },
+      "references": {
+        "url": [
+          "http://codex.wordpress.org/XML-RPC_Pingback_API"
+        ],
+        "metasploit": [
+          "auxiliary/scanner/http/wordpress_ghost_scanner",
+          "auxiliary/dos/http/wordpress_xmlrpc_dos",
+          "auxiliary/scanner/http/wordpress_xmlrpc_login",
+          "auxiliary/scanner/http/wordpress_pingback_access"
+        ]
+      },
+      "interesting_entries": [
+
+      ]
+    },
+    {
+      "url": "http://localhost/scan/wordpress/readme.html",
+      "to_s": "WordPress readme found: http://localhost/scan/wordpress/readme.html",
+      "type": "readme",
+      "found_by": "Direct Access (Aggressive Detection)",
+      "confidence": 100,
+      "confirmed_by": {
+
+      },
+      "references": {
+
+      },
+      "interesting_entries": [
+
+      ]
+    },
+    {
+      "url": "http://localhost/scan/wordpress/wp-content/uploads/",
+      "to_s": "Upload directory has listing enabled: http://localhost/scan/wordpress/wp-content/uploads/",
+      "type": "upload_directory_listing",
+      "found_by": "Direct Access (Aggressive Detection)",
+      "confidence": 100,
+      "confirmed_by": {
+
+      },
+      "references": {
+
+      },
+      "interesting_entries": [
+
+      ]
+    },
+    {
+      "url": "http://localhost/scan/wordpress/wp-cron.php",
+      "to_s": "The external WP-Cron seems to be enabled: http://localhost/scan/wordpress/wp-cron.php",
+      "type": "wp_cron",
+      "found_by": "Direct Access (Aggressive Detection)",
+      "confidence": 60,
+      "confirmed_by": {
+
+      },
+      "references": {
+        "url": [
+          "https://www.iplocation.net/defend-wordpress-from-ddos",
+          "https://github.com/wpscanteam/wpscan/issues/1299"
+        ]
+      },
+      "interesting_entries": [
+
+      ]
+    }
+  ],
+  "version": {
+    "number": "5.8",
+    "release_date": "2021-07-20",
+    "status": "insecure",
+    "found_by": "Emoji Settings (Passive Detection)",
+    "confidence": 100,
+    "interesting_entries": [
+      "http://localhost/scan/wordpress/, Match: 'wp-includes\\/js\\/wp-emoji-release.min.js?ver=5.8'"
+    ],
+    "confirmed_by": {
+      "Meta Generator (Passive Detection)": {
+        "confidence": 60,
+        "interesting_entries": [
+          "http://localhost/scan/wordpress/, Match: 'WordPress 5.8'"
+        ]
+      }
+    },
+    "vulnerabilities": [
+      {
+        "title": "WordPress 5.4 to 5.8 - Data Exposure via REST API",
+        "fixed_in": "5.8.1",
+        "references": {
+          "cve": [
+            "2021-39200"
+          ],
+          "url": [
+            "https://wordpress.org/news/2021/09/wordpress-5-8-1-security-and-maintenance-release/",
+            "https://github.com/WordPress/wordpress-develop/commit/ca4765c62c65acb732b574a6761bf5fd84595706",
+            "https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-m9hc-7v5q-x8q5"
+          ],
+          "wpvulndb": [
+            "38dd7e87-9a22-48e2-bab1-dc79448ecdfb"
+          ]
+        }
+      },
+      {
+        "title": "WordPress 5.4 to 5.8 - Authenticated XSS in Block Editor",
+        "fixed_in": "5.8.1",
+        "references": {
+          "cve": [
+            "2021-39201"
+          ],
+          "url": [
+            "https://wordpress.org/news/2021/09/wordpress-5-8-1-security-and-maintenance-release/",
+            "https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-wh69-25hr-h94v"
+          ],
+          "wpvulndb": [
+            "5b754676-20f5-4478-8fd3-6bc383145811"
+          ]
+        }
+      },
+      {
+        "title": "WordPress 5.4 to 5.8 -  Lodash Library Update",
+        "fixed_in": "5.8.1",
+        "references": {
+          "url": [
+            "https://wordpress.org/news/2021/09/wordpress-5-8-1-security-and-maintenance-release/",
+            "https://github.com/lodash/lodash/wiki/Changelog",
+            "https://github.com/WordPress/wordpress-develop/commit/fb7ecd92acef6c813c1fde6d9d24a21e02340689"
+          ],
+          "wpvulndb": [
+            "5d6789db-e320-494b-81bb-e678674f4199"
+          ]
+        }
+      },
+      {
+        "title": "WordPress < 5.8.2 - Expired DST Root CA X3 Certificate",
+        "fixed_in": "5.8.2",
+        "references": {
+          "url": [
+            "https://wordpress.org/news/2021/11/wordpress-5-8-2-security-and-maintenance-release/",
+            "https://core.trac.wordpress.org/ticket/54207"
+          ],
+          "wpvulndb": [
+            "cc23344a-5c91-414a-91e3-c46db614da8d"
+          ]
+        }
+      },
+      {
+        "title": "WordPress < 5.8.3 - SQL Injection via WP_Query",
+        "fixed_in": "5.8.3",
+        "references": {
+          "cve": [
+            "2022-21661"
+          ],
+          "url": [
+            "https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-6676-cqfm-gw84",
+            "https://hackerone.com/reports/1378209"
+          ],
+          "wpvulndb": [
+            "7f768bcf-ed33-4b22-b432-d1e7f95c1317"
+          ]
+        }
+      },
+      {
+        "title": "WordPress < 5.8.3 - Author+ Stored XSS via Post Slugs",
+        "fixed_in": "5.8.3",
+        "references": {
+          "cve": [
+            "2022-21662"
+          ],
+          "url": [
+            "https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-699q-3hj9-889w",
+            "https://hackerone.com/reports/425342",
+            "https://blog.sonarsource.com/wordpress-stored-xss-vulnerability"
+          ],
+          "wpvulndb": [
+            "dc6f04c2-7bf2-4a07-92b5-dd197e4d94c8"
+          ]
+        }
+      },
+      {
+        "title": "WordPress 4.1-5.8.2 - SQL Injection via WP_Meta_Query",
+        "fixed_in": "5.8.3",
+        "references": {
+          "cve": [
+            "2022-21664"
+          ],
+          "url": [
+            "https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-jp3p-gw8h-6x86"
+          ],
+          "wpvulndb": [
+            "24462ac4-7959-4575-97aa-a6dcceeae722"
+          ]
+        }
+      },
+      {
+        "title": "WordPress < 5.8.3 - Super Admin Object Injection in Multisites",
+        "fixed_in": "5.8.3",
+        "references": {
+          "cve": [
+            "2022-21663"
+          ],
+          "url": [
+            "https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-jmmq-m8p8-332h",
+            "https://hackerone.com/reports/541469"
+          ],
+          "wpvulndb": [
+            "008c21ab-3d7e-4d97-b6c3-db9d83f390a7"
+          ]
+        }
+      },
+      {
+        "title": "WordPress < 5.9.2 - Prototype Pollution in jQuery",
+        "fixed_in": "5.8.4",
+        "references": {
+          "url": [
+            "https://wordpress.org/news/2022/03/wordpress-5-9-2-security-maintenance-release/"
+          ],
+          "wpvulndb": [
+            "1ac912c1-5e29-41ac-8f76-a062de254c09"
+          ]
+        }
+      },
+      {
+        "title": "WordPress < 5.9.2 / Gutenberg < 12.7.2 - Prototype Pollution via Gutenberg’s wordpress/url package",
+        "fixed_in": "5.8.4",
+        "references": {
+          "url": [
+            "https://wordpress.org/news/2022/03/wordpress-5-9-2-security-maintenance-release/",
+            "https://github.com/WordPress/gutenberg/pull/39365/files"
+          ],
+          "wpvulndb": [
+            "6e61b246-5af1-4a4f-9ca8-a8c87eb2e499"
+          ]
+        }
+      },
+      {
+        "title": "WP < 6.0.2 - Reflected Cross-Site Scripting",
+        "fixed_in": "5.8.5",
+        "references": {
+          "url": [
+            "https://wordpress.org/news/2022/08/wordpress-6-0-2-security-and-maintenance-release/"
+          ],
+          "wpvulndb": [
+            "622893b0-c2c4-4ee7-9fa1-4cecef6e36be"
+          ]
+        }
+      },
+      {
+        "title": "WP < 6.0.2 - Authenticated Stored Cross-Site Scripting",
+        "fixed_in": "5.8.5",
+        "references": {
+          "url": [
+            "https://wordpress.org/news/2022/08/wordpress-6-0-2-security-and-maintenance-release/"
+          ],
+          "wpvulndb": [
+            "3b1573d4-06b4-442b-bad5-872753118ee0"
+          ]
+        }
+      },
+      {
+        "title": "WP < 6.0.2 - SQLi via Link API",
+        "fixed_in": "5.8.5",
+        "references": {
+          "url": [
+            "https://wordpress.org/news/2022/08/wordpress-6-0-2-security-and-maintenance-release/"
+          ],
+          "wpvulndb": [
+            "601b0bf9-fed2-4675-aec7-fed3156a022f"
+          ]
+        }
+      },
+      {
+        "title": "WP < 6.0.3 - Stored XSS via wp-mail.php",
+        "fixed_in": "5.8.6",
+        "references": {
+          "url": [
+            "https://wordpress.org/news/2022/10/wordpress-6-0-3-security-release/",
+            "https://github.com/WordPress/wordpress-develop/commit/abf236fdaf94455e7bc6e30980cf70401003e283"
+          ],
+          "wpvulndb": [
+            "713bdc8b-ab7c-46d7-9847-305344a579c4"
+          ]
+        }
+      },
+      {
+        "title": "WP < 6.0.3 - Open Redirect via wp_nonce_ays",
+        "fixed_in": "5.8.6",
+        "references": {
+          "url": [
+            "https://wordpress.org/news/2022/10/wordpress-6-0-3-security-release/",
+            "https://github.com/WordPress/wordpress-develop/commit/506eee125953deb658307bb3005417cb83f32095"
+          ],
+          "wpvulndb": [
+            "926cd097-b36f-4d26-9c51-0dfab11c301b"
+          ]
+        }
+      },
+      {
+        "title": "WP < 6.0.3 - Email Address Disclosure via wp-mail.php",
+        "fixed_in": "5.8.6",
+        "references": {
+          "url": [
+            "https://wordpress.org/news/2022/10/wordpress-6-0-3-security-release/",
+            "https://github.com/WordPress/wordpress-develop/commit/5fcdee1b4d72f1150b7b762ef5fb39ab288c8d44"
+          ],
+          "wpvulndb": [
+            "c5675b59-4b1d-4f64-9876-068e05145431"
+          ]
+        }
+      },
+      {
+        "title": "WP < 6.0.3 - Reflected XSS via SQLi in Media Library",
+        "fixed_in": "5.8.6",
+        "references": {
+          "url": [
+            "https://wordpress.org/news/2022/10/wordpress-6-0-3-security-release/",
+            "https://github.com/WordPress/wordpress-develop/commit/8836d4682264e8030067e07f2f953a0f66cb76cc"
+          ],
+          "wpvulndb": [
+            "cfd8b50d-16aa-4319-9c2d-b227365c2156"
+          ]
+        }
+      },
+      {
+        "title": "WP < 6.0.3 - CSRF in wp-trackback.php",
+        "fixed_in": "5.8.6",
+        "references": {
+          "url": [
+            "https://wordpress.org/news/2022/10/wordpress-6-0-3-security-release/",
+            "https://github.com/WordPress/wordpress-develop/commit/a4f9ca17fae0b7d97ff807a3c234cf219810fae0"
+          ],
+          "wpvulndb": [
+            "b60a6557-ae78-465c-95bc-a78cf74a6dd0"
+          ]
+        }
+      },
+      {
+        "title": "WP < 6.0.3 - Stored XSS via the Customizer",
+        "fixed_in": "5.8.6",
+        "references": {
+          "url": [
+            "https://wordpress.org/news/2022/10/wordpress-6-0-3-security-release/",
+            "https://github.com/WordPress/wordpress-develop/commit/2ca28e49fc489a9bb3c9c9c0d8907a033fe056ef"
+          ],
+          "wpvulndb": [
+            "2787684c-aaef-4171-95b4-ee5048c74218"
+          ]
+        }
+      },
+      {
+        "title": "WP < 6.0.3 - Stored XSS via Comment Editing",
+        "fixed_in": "5.8.6",
+        "references": {
+          "url": [
+            "https://wordpress.org/news/2022/10/wordpress-6-0-3-security-release/",
+            "https://github.com/WordPress/wordpress-develop/commit/89c8f7919460c31c0f259453b4ffb63fde9fa955"
+          ],
+          "wpvulndb": [
+            "02d76d8e-9558-41a5-bdb6-3957dc31563b"
+          ]
+        }
+      },
+      {
+        "title": "WP < 6.0.3 - Content from Multipart Emails Leaked",
+        "fixed_in": "5.8.6",
+        "references": {
+          "url": [
+            "https://wordpress.org/news/2022/10/wordpress-6-0-3-security-release/",
+            "https://github.com/WordPress/wordpress-develop/commit/3765886b4903b319764490d4ad5905bc5c310ef8"
+          ],
+          "wpvulndb": [
+            "3f707e05-25f0-4566-88ed-d8d0aff3a872"
+          ]
+        }
+      },
+      {
+        "title": "WP < 6.0.3 - SQLi in WP_Date_Query",
+        "fixed_in": "5.8.6",
+        "references": {
+          "url": [
+            "https://wordpress.org/news/2022/10/wordpress-6-0-3-security-release/",
+            "https://github.com/WordPress/wordpress-develop/commit/d815d2e8b2a7c2be6694b49276ba3eee5166c21f"
+          ],
+          "wpvulndb": [
+            "1da03338-557f-4cb6-9a65-3379df4cce47"
+          ]
+        }
+      },
+      {
+        "title": "WP < 6.0.3 - Stored XSS via RSS Widget",
+        "fixed_in": "5.8.6",
+        "references": {
+          "url": [
+            "https://wordpress.org/news/2022/10/wordpress-6-0-3-security-release/",
+            "https://github.com/WordPress/wordpress-develop/commit/929cf3cb9580636f1ae3fe944b8faf8cca420492"
+          ],
+          "wpvulndb": [
+            "58d131f5-f376-4679-b604-2b888de71c5b"
+          ]
+        }
+      },
+      {
+        "title": "WP < 6.0.3 - Data Exposure via REST Terms/Tags Endpoint",
+        "fixed_in": "5.8.6",
+        "references": {
+          "url": [
+            "https://wordpress.org/news/2022/10/wordpress-6-0-3-security-release/",
+            "https://github.com/WordPress/wordpress-develop/commit/ebaac57a9ac0174485c65de3d32ea56de2330d8e"
+          ],
+          "wpvulndb": [
+            "b27a8711-a0c0-4996-bd6a-01734702913e"
+          ]
+        }
+      },
+      {
+        "title": "WP < 6.0.3 - Multiple Stored XSS via Gutenberg",
+        "fixed_in": "5.8.6",
+        "references": {
+          "url": [
+            "https://wordpress.org/news/2022/10/wordpress-6-0-3-security-release/",
+            "https://github.com/WordPress/gutenberg/pull/45045/files"
+          ],
+          "wpvulndb": [
+            "f513c8f6-2e1c-45ae-8a58-36b6518e2aa9"
+          ]
+        }
+      },
+      {
+        "title": "WP <= 6.2 - Unauthenticated Blind SSRF via DNS Rebinding",
+        "fixed_in": null,
+        "references": {
+          "cve": [
+            "2022-3590"
+          ],
+          "url": [
+            "https://blog.sonarsource.com/wordpress-core-unauthenticated-blind-ssrf/"
+          ],
+          "wpvulndb": [
+            "c8814e6e-78b3-4f63-a1d3-6906a84c1f11"
+          ]
+        }
+      },
+      {
+        "title": "WP < 6.2.1 - Directory Traversal via Translation Files",
+        "fixed_in": "5.8.7",
+        "references": {
+          "cve": [
+            "2023-2745"
+          ],
+          "url": [
+            "https://wordpress.org/news/2023/05/wordpress-6-2-1-maintenance-security-release/"
+          ],
+          "wpvulndb": [
+            "2999613a-b8c8-4ec0-9164-5dfe63adf6e6"
+          ]
+        }
+      },
+      {
+        "title": "WP < 6.2.1 - Thumbnail Image Update via CSRF",
+        "fixed_in": "5.8.7",
+        "references": {
+          "url": [
+            "https://wordpress.org/news/2023/05/wordpress-6-2-1-maintenance-security-release/"
+          ],
+          "wpvulndb": [
+            "a03d744a-9839-4167-a356-3e7da0f1d532"
+          ]
+        }
+      },
+      {
+        "title": "WP < 6.2.1 - Contributor+ Stored XSS via Open Embed Auto Discovery",
+        "fixed_in": "5.8.7",
+        "references": {
+          "url": [
+            "https://wordpress.org/news/2023/05/wordpress-6-2-1-maintenance-security-release/"
+          ],
+          "wpvulndb": [
+            "3b574451-2852-4789-bc19-d5cc39948db5"
+          ]
+        }
+      },
+      {
+        "title": "WP < 6.2.2 - Shortcode Execution in User Generated Data",
+        "fixed_in": "5.8.7",
+        "references": {
+          "url": [
+            "https://wordpress.org/news/2023/05/wordpress-6-2-1-maintenance-security-release/",
+            "https://wordpress.org/news/2023/05/wordpress-6-2-2-security-release/"
+          ],
+          "wpvulndb": [
+            "ef289d46-ea83-4fa5-b003-0352c690fd89"
+          ]
+        }
+      },
+      {
+        "title": "WP < 6.2.1 - Contributor+ Content Injection",
+        "fixed_in": "5.8.7",
+        "references": {
+          "url": [
+            "https://wordpress.org/news/2023/05/wordpress-6-2-1-maintenance-security-release/"
+          ],
+          "wpvulndb": [
+            "1527ebdb-18bc-4f9d-9c20-8d729a628670"
+          ]
+        }
+      },
+      {
+        "title": "WP 5.6-6.3.1 - Reflected XSS via Application Password Requests",
+        "fixed_in": "5.8.8",
+        "references": {
+          "url": [
+            "https://wordpress.org/news/2023/10/wordpress-6-3-2-maintenance-and-security-release/"
+          ],
+          "wpvulndb": [
+            "da1419cc-d821-42d6-b648-bdb3c70d91f2"
+          ]
+        }
+      },
+      {
+        "title": "WP < 6.3.2 - Denial of Service via Cache Poisoning",
+        "fixed_in": "5.8.8",
+        "references": {
+          "url": [
+            "https://wordpress.org/news/2023/10/wordpress-6-3-2-maintenance-and-security-release/"
+          ],
+          "wpvulndb": [
+            "6d80e09d-34d5-4fda-81cb-e703d0e56e4f"
+          ]
+        }
+      },
+      {
+        "title": "WP < 6.3.2 - Subscriber+ Arbitrary Shortcode Execution",
+        "fixed_in": "5.8.8",
+        "references": {
+          "url": [
+            "https://wordpress.org/news/2023/10/wordpress-6-3-2-maintenance-and-security-release/"
+          ],
+          "wpvulndb": [
+            "3615aea0-90aa-4f9a-9792-078a90af7f59"
+          ]
+        }
+      },
+      {
+        "title": "WP < 6.3.2 - Contributor+ Comment Disclosure",
+        "fixed_in": "5.8.8",
+        "references": {
+          "cve": [
+            "2023-39999"
+          ],
+          "url": [
+            "https://wordpress.org/news/2023/10/wordpress-6-3-2-maintenance-and-security-release/"
+          ],
+          "wpvulndb": [
+            "d35b2a3d-9b41-4b4f-8e87-1b8ccb370b9f"
+          ]
+        }
+      },
+      {
+        "title": "WP < 6.3.2 - Unauthenticated Post Author Email Disclosure",
+        "fixed_in": "5.8.8",
+        "references": {
+          "cve": [
+            "2023-5561"
+          ],
+          "url": [
+            "https://wpscan.com/blog/email-leak-oracle-vulnerability-addressed-in-wordpress-6-3-2/",
+            "https://wordpress.org/news/2023/10/wordpress-6-3-2-maintenance-and-security-release/"
+          ],
+          "wpvulndb": [
+            "19380917-4c27-4095-abf1-eba6f913b441"
+          ]
+        }
+      },
+      {
+        "title": "WordPress < 6.4.3 - Deserialization of Untrusted Data",
+        "fixed_in": "5.8.9",
+        "references": {
+          "url": [
+            "https://wordpress.org/news/2024/01/wordpress-6-4-3-maintenance-and-security-release/"
+          ],
+          "wpvulndb": [
+            "5e9804e5-bbd4-4836-a5f0-b4388cc39225"
+          ]
+        }
+      },
+      {
+        "title": "WordPress < 6.4.3 - Admin+ PHP File Upload",
+        "fixed_in": "5.8.9",
+        "references": {
+          "url": [
+            "https://wordpress.org/news/2024/01/wordpress-6-4-3-maintenance-and-security-release/"
+          ],
+          "wpvulndb": [
+            "a8e12fbe-c70b-4078-9015-cf57a05bdd4a"
+          ]
+        }
+      },
+      {
+        "title": "WordPress < 6.5.5 - Contributor+ Stored XSS in HTML API",
+        "fixed_in": "5.8.10",
+        "references": {
+          "url": [
+            "https://wordpress.org/news/2024/06/wordpress-6-5-5/"
+          ],
+          "wpvulndb": [
+            "2c63f136-4c1f-4093-9a8c-5e51f19eae28"
+          ]
+        }
+      },
+      {
+        "title": "WordPress < 6.5.5 - Contributor+ Stored XSS in Template-Part Block",
+        "fixed_in": "5.8.10",
+        "references": {
+          "url": [
+            "https://wordpress.org/news/2024/06/wordpress-6-5-5/"
+          ],
+          "wpvulndb": [
+            "7c448f6d-4531-4757-bff0-be9e3220bbbb"
+          ]
+        }
+      },
+      {
+        "title": "WordPress < 6.5.5 - Contributor+ Path Traversal in Template-Part Block",
+        "fixed_in": "5.8.10",
+        "references": {
+          "url": [
+            "https://wordpress.org/news/2024/06/wordpress-6-5-5/"
+          ],
+          "wpvulndb": [
+            "36232787-754a-4234-83d6-6ded5e80251c"
+          ]
+        }
+      }
+    ]
+  },
+  "main_theme": {
+    "slug": "twentytwentyone",
+    "location": "http://localhost/scan/wordpress/wp-content/themes/twentytwentyone/",
+    "latest_version": "2.4",
+    "last_updated": "2024-11-13T00:00:00.000Z",
+    "outdated": true,
+    "readme_url": "http://localhost/scan/wordpress/wp-content/themes/twentytwentyone/readme.txt",
+    "directory_listing": false,
+    "error_log_url": null,
+    "style_url": "http://localhost/scan/wordpress/wp-content/themes/twentytwentyone/style.css?ver=1.4",
+    "style_name": "Twenty Twenty-One",
+    "style_uri": "https://wordpress.org/themes/twentytwentyone/",
+    "description": "Twenty Twenty-One is a blank canvas for your ideas and it makes the block editor your best brush. With new block patterns, which allow you to create a beautiful layout in a matter of seconds, this theme’s soft colors and eye-catching — yet timeless — design will let your work shine. Take it for a spin! See how Twenty Twenty-One elevates your portfolio, business website, or personal blog.",
+    "author": "the WordPress team",
+    "author_uri": "https://wordpress.org/",
+    "template": null,
+    "license": "GNU General Public License v2 or later",
+    "license_uri": "http://www.gnu.org/licenses/gpl-2.0.html",
+    "tags": "one-column, accessibility-ready, custom-colors, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, block-patterns, rtl-language-support, sticky-post, threaded-comments, translation-ready",
+    "text_domain": "twentytwentyone",
+    "found_by": "Css Style In Homepage (Passive Detection)",
+    "confidence": 70,
+    "interesting_entries": [
+
+    ],
+    "confirmed_by": {
+
+    },
+    "vulnerabilities": [
+
+    ],
+    "version": {
+      "number": "1.4",
+      "confidence": 80,
+      "found_by": "Style (Passive Detection)",
+      "interesting_entries": [
+        "http://localhost/scan/wordpress/wp-content/themes/twentytwentyone/style.css?ver=1.4, Match: 'Version: 1.4'"
+      ],
+      "confirmed_by": {
+
+      }
+    },
+    "parents": [
+
+    ]
+  },
+  "plugins": {
+    "ele-custom-skin": {
+      "slug": "ele-custom-skin",
+      "location": "http://localhost/scan/wordpress/wp-content/plugins/ele-custom-skin/",
+      "latest_version": "3.1.9",
+      "last_updated": "2024-04-11T09:40:00.000Z",
+      "outdated": true,
+      "readme_url": null,
+      "directory_listing": null,
+      "error_log_url": null,
+      "found_by": "Urls In Homepage (Passive Detection)",
+      "confidence": 80,
+      "interesting_entries": [
+
+      ],
+      "confirmed_by": {
+
+      },
+      "vulnerabilities": [
+
+      ],
+      "version": {
+        "number": "3.1.3",
+        "confidence": 100,
+        "found_by": "Readme - Stable Tag (Aggressive Detection)",
+        "interesting_entries": [
+          "http://localhost/scan/wordpress/wp-content/plugins/ele-custom-skin/readme.txt"
+        ],
+        "confirmed_by": {
+          "Readme - ChangeLog Section (Aggressive Detection)": {
+            "confidence": 50,
+            "interesting_entries": [
+              "http://localhost/scan/wordpress/wp-content/plugins/ele-custom-skin/readme.txt"
+            ]
+          }
+        }
+      }
+    },
+    "woocommerce": {
+      "slug": "woocommerce",
+      "location": "http://localhost/scan/wordpress/wp-content/plugins/woocommerce/",
+      "latest_version": "9.7.1",
+      "last_updated": "2025-03-04T15:28:00.000Z",
+      "outdated": true,
+      "readme_url": null,
+      "directory_listing": null,
+      "error_log_url": null,
+      "found_by": "Urls In Homepage (Passive Detection)",
+      "confidence": 100,
+      "interesting_entries": [
+
+      ],
+      "confirmed_by": {
+        "Meta Generator (Passive Detection)": {
+          "confidence": 40,
+          "interesting_entries": [
+
+          ]
+        }
+      },
+      "vulnerabilities": [
+        {
+          "title": "WooCommerce < 7.9 - Unauthenticated Sensitive Information Disclosure",
+          "fixed_in": "7.9",
+          "references": {
+            "url": [
+              "https://hackerone.com/reports/2057736"
+            ],
+            "wpvulndb": [
+              "d1cec296-b5df-4cea-8c0d-d03a975cb6af"
+            ]
+          }
+        },
+        {
+          "title": "WooCommerce < 8.1.1 - Shop Manager+ User Metadata Disclosure",
+          "fixed_in": "8.1.1",
+          "references": {
+            "url": [
+              "https://hackerone.com/reports/1702658",
+              "https://developer.woocommerce.com/2023/09/16/woocommerce-vulnerability-reintroduced-from-7-0-1/"
+            ],
+            "wpvulndb": [
+              "bb9f355a-be33-41b1-af36-0a30c24bec8c"
+            ]
+          }
+        },
+        {
+          "title": "WooCommerce < 7.9.0 - Sensitive Information Exposure",
+          "fixed_in": "7.9.0",
+          "references": {
+            "url": [
+              "https://www.wordfence.com/threat-intel/vulnerabilities/id/7b2d1879-c337-41c9-9f47-f9c2fe8e5928"
+            ],
+            "wpvulndb": [
+              "9c9498b0-d42e-4ce0-b299-ba5d08058a75"
+            ]
+          }
+        },
+        {
+          "title": "WooCommerce <= 8.1.1 & WooCommerce Blocks <= 11.1.1 - Authenticated (Contributor+) Stored Cross-Site Scripting via Featured Image alt Attribute",
+          "fixed_in": "8.2.0",
+          "references": {
+            "cve": [
+              "2023-47777"
+            ],
+            "url": [
+              "https://www.wordfence.com/threat-intel/vulnerabilities/id/525dec5b-b457-483c-ab2d-09dd320edcaa"
+            ],
+            "wpvulndb": [
+              "b8e9b8cf-8d13-4fd8-8e1e-ee35a01baf05"
+            ]
+          }
+        },
+        {
+          "title": "WooCommerce < 7.0.1 - Authenticated(Shop Manager+) Sensitive Information Exposure",
+          "fixed_in": "7.0.1",
+          "references": {
+            "url": [
+              "https://www.wordfence.com/threat-intel/vulnerabilities/id/f1efcff5-3af6-4c44-9654-b917523419aa"
+            ],
+            "wpvulndb": [
+              "45f56af8-b238-41a5-b7d5-bd40982d5ed7"
+            ]
+          }
+        },
+        {
+          "title": "WooCommerce < 8.3.0 - Cross-Site Request Forgery",
+          "fixed_in": "8.3.0",
+          "references": {
+            "cve": [
+              "2023-52222"
+            ],
+            "url": [
+              "https://patchstack.com/database/vulnerability/woocommerce/wordpress-woocommerce-plugin-8-2-2-cross-site-request-forgery-csrf-vulnerability"
+            ],
+            "wpvulndb": [
+              "d11e7996-3417-4b1b-a090-2f4d31cdd11d"
+            ]
+          }
+        },
+        {
+          "title": "WooCommerce < 8.4.0 - Reflected Cross-Site Scripting",
+          "fixed_in": "8.4.0",
+          "references": {
+            "url": [
+              "https://www.wordfence.com/threat-intel/vulnerabilities/id/43810a17-89b4-44f5-887e-1ad0989ea5b4"
+            ],
+            "wpvulndb": [
+              "0b51f01a-24d9-4101-bdcf-728b21efc5ed"
+            ]
+          }
+        },
+        {
+          "title": "WooCommerce < 8.6 - Contributor+ Private/Draft Products Access",
+          "fixed_in": "8.6",
+          "references": {
+            "cve": [
+              "2024-1310"
+            ],
+            "wpvulndb": [
+              "a7735feb-876e-461c-9a56-ea6067faf277"
+            ]
+          }
+        },
+        {
+          "title": "WooCommerce < 8.6.0 - Cross-Site Request Forgery",
+          "fixed_in": "8.6.0",
+          "references": {
+            "cve": [
+              "2024-22155"
+            ],
+            "url": [
+              "https://patchstack.com/database/vulnerability/woocommerce/wordpress-woocommerce-plugin-8-5-2-cross-site-request-forgery-csrf-vulnerability"
+            ],
+            "wpvulndb": [
+              "14d03287-6571-46d3-89af-0ad64dad6d33"
+            ]
+          }
+        },
+        {
+          "title": "WooCommerce < 9.0.0 - Shop Manager+ Content Injection",
+          "fixed_in": "9.0.0",
+          "references": {
+            "cve": [
+              "2024-35777"
+            ],
+            "url": [
+              "https://www.wordfence.com/threat-intel/vulnerabilities/id/ee8436c2-3dda-481c-92b3-cc2ba8fc1993"
+            ],
+            "wpvulndb": [
+              "44887eb0-ee24-4368-ba5e-6ed189ba8e5d"
+            ]
+          }
+        },
+        {
+          "title": "WooCommerce < 9.2 - Contributor+ Stored XSS",
+          "fixed_in": "9.2",
+          "references": {
+            "url": [
+              "https://developer.woocommerce.com/2024/08/21/woocommerce-9-2-a-better-experience-for-all-users/"
+            ],
+            "wpvulndb": [
+              "c966c5ea-3cb4-4dc0-ac85-8d534c83804b"
+            ]
+          }
+        },
+        {
+          "title": "WooCommerce < 9.1.0 - Unauthenticated HTML Injection",
+          "fixed_in": "9.1.0",
+          "references": {
+            "cve": [
+              "2024-9944"
+            ],
+            "url": [
+              "https://www.wordfence.com/threat-intel/vulnerabilities/id/b5dfe2a5-612f-4e6c-a639-4afcff2ffa4c"
+            ],
+            "wpvulndb": [
+              "ccef1e59-40df-4645-aacb-4bb9c4b96456"
+            ]
+          }
+        },
+        {
+          "title": "WooCommerce < 9.4.3 - Unauthenticated Order Creation",
+          "fixed_in": "9.4.3",
+          "references": {
+            "wpvulndb": [
+              "d51f5bb7-ba87-4ce8-adcf-6bef4217b5db"
+            ]
+          }
+        },
+        {
+          "title": "Woocommerce < 9.7.1 - Shop Manager+ Stored XSS via New Product Form",
+          "fixed_in": "9.7.1",
+          "references": {
+            "cve": [
+              "2025-26762"
+            ],
+            "url": [
+              "https://developer.woocommerce.com/2025/03/04/woocommerce-9-7-1-dot-release/"
+            ],
+            "wpvulndb": [
+              "94cbfc1b-9a55-44fa-b1d9-0c47980ace3c"
+            ]
+          }
+        }
+      ],
+      "version": {
+        "number": "7.0.0",
+        "confidence": 100,
+        "found_by": "Query Parameter (Passive Detection)",
+        "interesting_entries": [
+          "http://localhost/scan/wordpress/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=7.0.0",
+          "http://localhost/scan/wordpress/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=7.0.0",
+          "http://localhost/scan/wordpress/wp-content/plugins/woocommerce/assets/css/twenty-twenty-one.css?ver=7.0.0",
+          "http://localhost/scan/wordpress/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=7.0.0",
+          "http://localhost/scan/wordpress/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=7.0.0",
+          "http://localhost/scan/wordpress/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=7.0.0"
+        ],
+        "confirmed_by": {
+          "Meta Generator (Passive Detection)": {
+            "confidence": 60,
+            "interesting_entries": [
+              "http://localhost/scan/wordpress/, Match: 'WooCommerce 7.0.0'"
+            ]
+          }
+        }
+      }
+    },
+    "woocommerce-payments": {
+      "slug": "woocommerce-payments",
+      "location": "http://localhost/scan/wordpress/wp-content/plugins/woocommerce-payments/",
+      "latest_version": "9.0.0",
+      "last_updated": "2025-02-26T12:12:00.000Z",
+      "outdated": true,
+      "readme_url": null,
+      "directory_listing": null,
+      "error_log_url": null,
+      "found_by": "Urls In Homepage (Passive Detection)",
+      "confidence": 80,
+      "interesting_entries": [
+
+      ],
+      "confirmed_by": {
+
+      },
+      "vulnerabilities": [
+        {
+          "title": "WooCommerce Payments < 5.6.2 - Unauthenticated Privilege Escalation",
+          "fixed_in": "5.6.2",
+          "references": {
+            "cve": [
+              "2023-28121"
+            ],
+            "url": [
+              "https://developer.woocommerce.com/2023/03/23/critical-vulnerability-detected-in-woocommerce-payments-what-you-need-to-know/"
+            ],
+            "wpvulndb": [
+              "0f78a245-866c-462e-bd23-43dfadb57072"
+            ]
+          }
+        },
+        {
+          "title": "WooCommerce Payments < 6.5.0 - Contributor+ Cross-Site Scripting",
+          "fixed_in": "6.5.0",
+          "references": {
+            "cve": [
+              "2023-49828"
+            ],
+            "url": [
+              "https://hackerone.com/reports/2169909",
+              "https://patchstack.com/database/vulnerability/woocommerce-payments/wordpress-woopayments-plugin-6-4-2-cross-site-scripting-xss-vulnerability"
+            ],
+            "wpvulndb": [
+              "b5f64388-6148-4bc5-a126-476c5ed17bb8"
+            ]
+          }
+        },
+        {
+          "title": "WooPayments < 6.7.0 - Unauthenticated Order Deletion via IDOR",
+          "fixed_in": "6.7.0",
+          "references": {
+            "cve": [
+              "2023-51503"
+            ],
+            "url": [
+              "https://patchstack.com/database/vulnerability/woocommerce-payments/wordpress-woopayments-plugin-6-6-2-unauthenticated-insecure-direct-object-references-idor-vulnerability"
+            ],
+            "wpvulndb": [
+              "5fad691c-32d9-46f8-ab69-b4405d2288bf"
+            ]
+          }
+        },
+        {
+          "title": "WooCommerce Payments < 5.9.1 - Shop Manager+ SQLi",
+          "fixed_in": "5.9.1",
+          "references": {
+            "cve": [
+              "2023-35915"
+            ],
+            "wpvulndb": [
+              "923836d0-1a79-483d-9fe8-cf13af7468b3"
+            ]
+          }
+        }
+      ],
+      "version": {
+        "number": "4.9.0",
+        "confidence": 100,
+        "found_by": "Readme - Stable Tag (Aggressive Detection)",
+        "interesting_entries": [
+          "http://localhost/scan/wordpress/wp-content/plugins/woocommerce-payments/readme.txt"
+        ],
+        "confirmed_by": {
+          "Readme - ChangeLog Section (Aggressive Detection)": {
+            "confidence": 50,
+            "interesting_entries": [
+              "http://localhost/scan/wordpress/wp-content/plugins/woocommerce-payments/readme.txt"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "config_backups": {
+
+  },
+  "vuln_api": {
+    "plan": "free",
+    "requests_done_during_scan": 5,
+    "requests_remaining": 20
+  },
+  "stop_time": 1743717456,
+  "elapsed": 5,
+  "requests_done": 181,
+  "cached_requests": 5,
+  "data_sent": 0,
+  "data_sent_humanised": "0 B",
+  "data_received": 561512,
+  "data_received_humanised": "548.352 KB",
+  "used_memory": 225673216,
+  "used_memory_humanised": "215.219 MB"
+}
