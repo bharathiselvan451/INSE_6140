@@ -30,6 +30,12 @@ Tools & Techniques
 - Dynamic Analysis:** OWASP ZAP, Wapiti
 - Software Composition Analysis:** WPScan, Wordfence, OWASP Dependency-Check
 
+Automation
+- Automated the process by setting up the environment using the Composer package manager specific to wordpress.
+- Configured the website and plugins using wpcli and configure.sh
+- Collect and organize the results into a json file using result_scan.py
+
+
 Tools Used
 | Tool | Purpose |
 |------|---------|
@@ -39,7 +45,6 @@ Tools Used
 | SonarQube | Static code security review |
 | PHP_CodeSniffer | Enforce WP coding standards |
 | OWASP ZAP | Runtime vulnerability detection |
-| Wapiti | Identify header/config issues |
 
 ---
 
